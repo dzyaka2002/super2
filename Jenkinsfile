@@ -42,6 +42,7 @@ pipeline {
            if (FileBxists('docker-compose.yaml')) {
              echo "Файл найден. Открываю"
              sh 'cat docker-compose.yaml'
+           }
            else {
              echo "Файл не найден"
              error('Проверка наличия файла не нашла')
