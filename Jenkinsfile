@@ -22,7 +22,7 @@ pipeline {
       steps {
         script {
           echo "Start of stage test1"
-          ecno "Имя задачи, заданное в Jenkins:" + env.JOB_NAME // вывести имя задачи в Jenkins
+          echo "Имя задачи, заданное в Jenkins:" + env.JOB_NAME // вывести имя задачи в Jenkins
           echo "Имя в Jenkinsfile: ${PROJECT_NAME}"
           if (env.JOB_NAME==PROJECT_NAME) { // если имя задачи в Jenkins совпадает с именем проекта, определенное в environment, то все ок
             echo "Имя корректное"
