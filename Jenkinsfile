@@ -40,9 +40,9 @@ pipeline {
       steps {
          script {
            echo "Start of stage test2"
-           if (FileBxists('docker-compose.yaml')) {
+           if (fileExists('1.txt')) {
              echo "Файл найден. Открываю"
-             sh 'cat docker-compose.yaml'
+             sh 'cat 1.txt'
            }
            else {
              echo "Файл не найден"
