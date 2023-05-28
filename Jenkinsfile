@@ -1,3 +1,4 @@
+PROJECT_NAME = "test"
 pipeline {
 
   agent {
