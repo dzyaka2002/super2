@@ -7,17 +7,6 @@ pipeline {
   }
 
   stages {
-
-    stage('Deploy App to Kubernetes') {
-      steps {
-        container('kubectl') {
-          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-            sh 'kubectl create ns crud'
-            sh 'kubectl apply -f ./manifests -n crud'
-          }
-        }
-      }
-    }
     stage('Tест 1. проверка имени проекта') {
       steps {
         script {
@@ -47,6 +36,17 @@ pipeline {
              echo "Файл не найден"
              error('Проверка наличия файла не нашла')
            }
+        }
+      }
+    }
+
+    stage('Deploy App to Kubernetes') {
+      steps {
+        container('kubectl') {
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'kubectl create ns crud'
+            sh 'kubectl apply -f ./manifests -n crud'
+          }
         }
       }
     }
